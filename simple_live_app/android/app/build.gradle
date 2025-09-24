@@ -73,7 +73,6 @@ android {
                 signingConfig signingConfigs.release
             }
             release {
-                signingConfig signingConfigs.release
                 minifyEnabled true
                 shrinkResources true
                 proguardFiles getDefaultProguardFile(
