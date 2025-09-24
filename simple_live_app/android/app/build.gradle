@@ -23,12 +23,6 @@ if (flutterVersionName == null) {
     flutterVersionName = "1.0"
 }
 
-def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
-if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-}
-
 android {
     namespace = "com.xycz.simple_live"
     compileSdk = flutter.compileSdkVersion
@@ -53,24 +47,12 @@ android {
     packagingOptions {
         pickFirst 'lib/**/libc++_shared.so'
     }
-    signingConfigs {
-       release {
-           keyAlias keystoreProperties['keyAlias']
-           keyPassword keystoreProperties['keyPassword']
-           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-           storePassword keystoreProperties['storePassword']
-           v1SigningEnabled true
-           v2SigningEnabled true
-       }
-    }
 
     buildTypes {
         buildTypes {
             debug {
-                signingConfig signingConfigs.release
             }
             profile {
-                signingConfig signingConfigs.release
             }
             release {
                 minifyEnabled true
