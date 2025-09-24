@@ -111,12 +111,12 @@ class DouyuSite implements LiveSite {
       cdns.add(item["cdn"].toString());
     }
 
-    // 如果cdn以scdn开头，将其放到最后
+    // 如果cdn以scdn开头，将其放到最后 modified:放到第一个
     cdns.sort((a, b) {
       if (a.startsWith("scdn") && !b.startsWith("scdn")) {
-        return 1;
-      } else if (!a.startsWith("scdn") && b.startsWith("scdn")) {
         return -1;
+      } else if (!a.startsWith("scdn") && b.startsWith("scdn")) {
+        return 1;
       }
       return 0;
     });
