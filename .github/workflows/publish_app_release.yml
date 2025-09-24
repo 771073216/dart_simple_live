@@ -49,7 +49,7 @@ jobs:
       - name: Build APK
         run: |
           cd simple_live_app
-          flutter build apk --release --split-per-abi
+          flutter build apk --release --target-platform android-arm64
       
       #上传APK至Artifacts
       - name: Upload APK to Artifacts
